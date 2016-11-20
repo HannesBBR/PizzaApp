@@ -14,6 +14,7 @@ app.controller('NavCtrl', function ($scope, $location, $cookieStore, $window) {
                 else{
                                 $scope.username = $cookieStore.get('globals').currentUser.username;
                                 $scope.firstname = $cookieStore.get('globals').currentUser.user.firstName;
+                                $scope.role = $cookieStore.get('globals').currentUser.user.role;
                 }
 
 });

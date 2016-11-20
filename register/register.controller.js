@@ -13,6 +13,7 @@
 
         function register() {
             vm.dataLoading = true;
+            vm.user.role="user";
             UserService.Create(vm.user)
                 .then(function (response) {
                     if (response.success) {
@@ -25,17 +26,7 @@
                 });
         }
 
-        function createInitialUsers(){
-            console.log("creating initial users");
-            var cook = {};
-            cook.firstName = "Tim";
-            cook.lastName = "Cook";
-            cook.username = "cook";
-            cook.password = "test";
-            UserService.Create(cook);
-        }
 
-        createInitialUsers();
 
     }
 

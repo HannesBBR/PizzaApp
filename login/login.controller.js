@@ -39,12 +39,14 @@
             cook.lastName = "Cook";
             cook.username = "cook";
             cook.password = "test";
+            cook.role = "cook";
             UserService.Create(cook);
             var demo = {};
             demo.firstName = "Demo";
             demo.lastName = "Test";
             demo.username = "demo";
             demo.password = "test";
+            demo.role = "user";
             UserService.Create(demo);
         }
 

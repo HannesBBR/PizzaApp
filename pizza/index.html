@@ -40,7 +40,7 @@
 			<ul class="nav navbar-nav">
 				<li ng-class="{active: routeIs('/')}"><a href="#">Select Pizza</a></li>
 				<li ng-class="" ng-show="(role === 'admin') || (role == 'cook')"><a href="#">View Orders</a></li>
-				<li ng-class="" ng-show="(role === 'admin')"><a href="#">View Users</a></li>
+				<li ng-class="" ng-show="(role === 'admin')"><a href="#/users">View Users</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-class="{active: routeIs('/about-me')}"><a href="../#login">Logout</a></li>
@@ -73,6 +73,8 @@
 <script type="text/javascript" src="js/pizza/PizzaListDir.js"></script>
 <script type="text/javascript" src="js/pizza/OrderListDir.js"></script>
 <script type="text/javascript" src="js/purchase/PurchaseCtrl.js"></script>
+<script type="text/javascript" src="js/userlist/UserListCtrl.js"></script>
+<script type="text/javascript" src="js/userservice/user.service.local-storage.js"></script>
 
 </body>
 </html>

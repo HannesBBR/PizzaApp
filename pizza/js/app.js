@@ -15,6 +15,11 @@ app.config(function ($routeProvider) {
 		.when('/about-me', {
 			templateUrl: 'js/nav/about-me.html'
 		})
+		.when('/users', {
+			templateUrl: 'js/userlist/userList.html',
+			controller: 'UserListCtrl',
+			controllerAs: 'vm'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

@@ -13,6 +13,7 @@ app.controller('NavCtrl', function ($scope, $location, $cookieStore, $window) {
                 //Session cookie exists. Extract username
                 else{
                                 $scope.username = $cookieStore.get('globals').currentUser.username;
+                                $scope.firstname = $cookieStore.get('globals').currentUser.user.firstName;
                 }
 
 });

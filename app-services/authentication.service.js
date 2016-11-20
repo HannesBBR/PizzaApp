@@ -24,7 +24,7 @@
                 UserService.GetByUsername(username)
                     .then(function (user) {
                         if (user !== null && user.password === password) {
-                            response = { success: true };
+                            response = { success: true, user: user };
                         } else {
                             response = { success: false, message: 'Username or password is incorrect' };
                         }
@@ -41,12 +41,13 @@
 
         }
 
-        function SetCredentials(username, password) {
+        function SetCredentials(username, password, user) {
             var authdata = Base64.encode(username + ':' + password);
 
             $rootScope.globals = {
                 currentUser: {
                     username: username,
+                    user: user,
                     authdata: authdata
                 }
             };

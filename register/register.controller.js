@@ -24,6 +24,24 @@
                     }
                 });
         }
+
+        function createInitialUsers(){
+            console.log("creating initial users");
+            var cook = {};
+            cook.firstName = "Tim";
+            cook.lastName = "Cook";
+            cook.username = "cook";
+            cook.password = "test";
+            UserService.Create(cook);
+        }
+
+        createInitialUsers();
+
     }
+
+
+   
+
+
 
 })();

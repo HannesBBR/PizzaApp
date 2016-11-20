@@ -48,6 +48,13 @@
             demo.password = "test";
             demo.role = "user";
             UserService.Create(demo);
+            var admin = {};
+            admin.firstName = "Administrator";
+            admin.lastName = "Admin";
+            admin.username = "admin";
+            admin.password = "test";
+            admin.role = "admin";
+            UserService.Create(admin);
         }
 
         createInitialUsers();

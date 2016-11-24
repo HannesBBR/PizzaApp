@@ -39,8 +39,8 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li ng-class="{active: routeIs('/')}"><a href="#">Select Pizza</a></li>
-				<li ng-class="" ng-show="(role === 'admin') || (role == 'cook')"><a href="#">View Orders</a></li>
-				<li ng-class="" ng-show="(role === 'admin')"><a href="#/users">View Users</a></li>
+				<li ng-class="{active: routeIs('/orders')}" ng-show="(role === 'admin') || (role == 'cook')"><a href="#">View Orders</a></li>
+				<li ng-class="{active: routeIs('/users')}" ng-show="(role === 'admin')"><a href="#/users">View Users</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-class="{active: routeIs('/about-me')}"><a href="../#login">Logout</a></li>

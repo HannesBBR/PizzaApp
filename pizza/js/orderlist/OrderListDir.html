@@ -1,0 +1,36 @@
+
+
+<div class="panel panel-success">
+	<div class="panel-heading">
+		Orders
+	</div>
+	<div class="panel-body">
+	<div class="btn-group">
+			<button type="button" class="btn btn-default" ng-class="{disabled: search === null}" ng-click="search = null">All</button>
+			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === true}" ng-click="search.status = 'new'">New</button>
+			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === true}" ng-click="search.status = 'ready'">Ready</button>
+			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === false}" ng-click="search.status = 'delivered'">Delivered</button>
+		</div>
+		<hr/>
+
+	<table class="table-striped table-hover usertable">
+	<tr><th>First Name</th><th>Last Name</th><th>Username</th><th>Address</th><th>Credit card</th><th>Role</th><th></th></tr>
+	<tr ng-repeat="user in list | filter: search">
+	<td><h4>{{user.firstName}}</h4></td>
+	<td><h4>{{user.lastName}}</h4></td>
+	<td><h4>{{user.username}}</h4></td>
+	<td><h4>{{user.address}}</h4></td>
+	<td><h4>{{user.card.number}}</h4></td>
+	<td><span class="label label-warning" ng-show="user.role == 'admin' ">Administrator</span>
+				<span class="label label-info" ng-show="user.role == 'cook' ">Cook</span></td>
+	<td><button type="button" ng-click="vm.deleteUser(user.id)"
+				        class="btn btn-success">
+					<span class="glyphicon glyphicon-plus"></span>
+					Delete
+				</button></td>
+
+				</tr>
+	
+	</table>
+		</div>
+</div>

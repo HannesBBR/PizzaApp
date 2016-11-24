@@ -23,3 +23,16 @@ app.directive('userList', function () {
 		}
 	}
 });
+
+app.directive('orderList2', function () {
+	return {
+		restrict: "E",
+		templateUrl: "js/orderlist/OrderListDir.html",
+		scope: {
+			"list": "=",
+			"order": "=",
+			"deleteUser": "=",
+			"vm": "="
+		}
+	}
+});

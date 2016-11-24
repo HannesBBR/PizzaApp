@@ -20,6 +20,11 @@ app.config(function ($routeProvider) {
 			controller: 'UserListCtrl',
 			controllerAs: 'vm'
 		})
+		.when('/orders', {
+			templateUrl: 'js/orderlist/orderList.html',
+			controller: 'OrderListCtrl',
+			controllerAs: 'vm'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

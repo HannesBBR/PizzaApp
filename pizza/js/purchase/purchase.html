@@ -8,7 +8,42 @@
 	</p>
 </div>
 
+
+
 <div ng-hide="order.time">
+
+<h1>Your order</h1>
+
+	<table class="table">
+			<tr ng-show="order.cart.length">
+				<th>name</th>
+				<th>price</th>
+				<th>count</th>
+				<th>total</th>
+			
+			</tr>
+			<tr ng-repeat="item in order.cart">
+				<td>{{item.pizza.name}}</td>
+				<td>{{item.pizza.price}} €</td>
+				<td>{{item.count}}</td>
+				<td>{{item.count * item.pizza.price | number:2}} €</td>
+			</tr>
+			<tr ng-show="order.cart.length && order.discount > 0">
+				<th>Discount</th>
+				<th></th>
+				<th></th>
+				<th>{{order.discount}}%</th>
+				<th></th>
+			</tr>
+			<tr ng-show="order.cart.length">
+				<th>TOTAL</th>
+				<th></th>
+				<th></th>
+				<th>{{order.total * (100 - order.discount)/100 | number:2}} €</th>
+			
+			</tr>
+		</table>
+
 	<h1>Set your delivery address, {{vm.user.firstName}}</h1>
 	<form class="form-horizontal" name="form" novalidate>
 		<div class="form-group">

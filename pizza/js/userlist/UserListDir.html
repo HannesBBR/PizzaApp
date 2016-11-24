@@ -1,0 +1,42 @@
+<div class="panel panel-success">
+	<div class="panel-heading">
+		Registered Users
+	</div>
+	<div class="panel-body">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default" ng-class="{disabled: search === null}" ng-click="search = null">All</button>
+			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === true}" ng-click="search.role = 'admin'">Administrators</button>
+			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === true}" ng-click="search.role = 'cook'">Cooks</button>
+			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === false}" ng-click="search.role = 'user'">Users</button>
+		</div>
+		<hr/>
+		<div ng-repeat="user in list | filter: search">
+			
+			<div>
+			<div>
+			<h3>
+				{{user.firstName}} {{user.lastName}}
+				<span class="label label-warning" ng-show="user.role == 'admin' ">Administrator</span>
+				<span class="label label-info" ng-show="user.role == 'cook' ">Cook</span>
+			</h3>
+			</div>
+
+			<div class="pull-right">
+				
+				<button type="button" ng-click="vm.deleteUser(user.id)"
+				        class="btn btn-success">
+					<span class="glyphicon glyphicon-plus"></span>
+					Delete
+				</button>
+				</div>
+			</div>
+
+			<p>
+				<!--<span ng-repeat="item in pizza.content">{{item}}<span ng-hide="$last">, </span></span>-->
+			</p>
+			<hr ng-hide="$last"/>
+		</div>
+	</div>
+</div>
+
+

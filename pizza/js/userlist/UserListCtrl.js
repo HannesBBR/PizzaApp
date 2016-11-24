@@ -36,6 +36,7 @@ function UserListCtrl(UserService, $rootScope, $cookieStore) {
 	}
 
 	function deleteUser(id) {
+		console.log("deleting user with id: "+id);
 		UserService.Delete(id)
 		.then(function () {
 			loadAllUsers();

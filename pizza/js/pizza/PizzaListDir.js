@@ -10,3 +10,16 @@ app.directive('pizzaList', function () {
 		}
 	}
 });
+
+app.directive('userList', function () {
+	return {
+		restrict: "E",
+		templateUrl: "js/userlist/UserListDir.html",
+		scope: {
+			"list": "=",
+			"order": "=",
+			"deleteUser": "=",
+			"vm": "="
+		}
+	}
+});

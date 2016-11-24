@@ -1,45 +1,38 @@
 'use strict';
 
-app.controller('OrderListCtrl', UserListCtrl);
+app.controller('OrderListCtrl', OrderListCtrl);
 
-UserListCtrl.$inject = ['UserService', '$rootScope', '$cookieStore'];
-function UserListCtrl(UserService, $rootScope, $cookieStore) {
+OrderListCtrl.$inject = ['OrderService', '$rootScope', '$cookieStore'];
+function OrderListCtrl(OrderService, $rootScope, $cookieStore) {
 	
 	var vm = this;
 
 	vm.user = null;
-	vm.allUsers = [];
-	vm.deleteUser = deleteUser;
+	vm.allOrders = [];
+	vm.deleteOrder = deleteOrder;
 
 	initController();
 
 	function initController() {
 		//loadCurrentUser();
-		loadAllUsers();
+		loadAllOrders();
 	}
 
-	function loadCurrentUser() {
-		UserService.GetByUsername($rootScope.globals.currentUser.username)
-			.then(function (user) {
-				vm.user = user;
-				//$cookies.put('favorite','test');
-				$cookieStore.put('myFavorite','oatmeal');
+
+
+	function loadAllOrders() {
+		OrderService.GetAll()
+			.then(function (orders) {
+				vm.allOrders = orders;
+				console.log("all orders:" + vm.allOrders);
 			});
 	}
 
-	function loadAllUsers() {
-		UserService.GetAll()
-			.then(function (users) {
-				vm.allUsers = users;
-				console.log(vm.allUsers);
-			});
-	}
-
-	function deleteUser(id) {
-		console.log("deleting user with id: "+id);
-		UserService.Delete(id)
+	function deleteOrder(id) {
+		console.log("deleting order with id: "+id);
+		OrderService.Delete(id)
 		.then(function () {
-			loadAllUsers();
+			loadAllOrders();
 		});
 	}
 	

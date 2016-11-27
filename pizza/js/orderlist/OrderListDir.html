@@ -39,12 +39,12 @@
 				</td>
 			</td>
 			<td>
-				<button type="button" ng-click="vm.deleteOrder(order.id)"
+				<button type="button" ng-show="vm.user.role == 'admin'" ng-click="vm.deleteOrder(order.id)"
 				        class="btn btn-success">
 					<span class="glyphicon glyphicon-plus"/>
 					Delete
 				</button>
-				<button type="button" ng-click="vm.deliverOrder(order.id)"
+				<button type="button" ng-show="(vm.user.role == 'delivery') && (order.status != 'delivered')" ng-click="vm.deliverOrder(order.id)"
 				        class="btn btn-success">
 					<span class="glyphicon glyphicon-plus"/>
 					Deliver

@@ -7,7 +7,8 @@ function OrderListCtrl(OrderService, $rootScope, $cookieStore) {
 	
 	var vm = this;
 
-	vm.user = null;
+	vm.user = $cookieStore.get('globals').currentUser.user;
+	
 	vm.allOrders = [];
 	vm.deleteOrder = deleteOrder;
 	vm.deliverOrder = deliverOrder;

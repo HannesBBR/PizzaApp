@@ -55,6 +55,13 @@
             admin.password = "test";
             admin.role = "admin";
             UserService.Create(admin);
+			var deliveroo = {};
+			deliveroo.firstName = "Pizza";
+			deliveroo.lastName = "Boy";
+			deliveroo.username = "pizzaboy";
+			deliveroo.password = "test";
+			deliveroo.role = "delivery";
+			UserService.Create(deliveroo);
         }
 
         createInitialUsers();

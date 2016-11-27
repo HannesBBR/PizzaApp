@@ -10,6 +10,7 @@ function OrderListCtrl(OrderService, $rootScope, $cookieStore) {
 	vm.user = null;
 	vm.allOrders = [];
 	vm.deleteOrder = deleteOrder;
+	vm.deliverOrder = deliverOrder;
 
 	initController();
 
@@ -17,8 +18,6 @@ function OrderListCtrl(OrderService, $rootScope, $cookieStore) {
 		//loadCurrentUser();
 		loadAllOrders();
 	}
-
-
 
 	function loadAllOrders() {
 		OrderService.GetAll()
@@ -33,6 +32,18 @@ function OrderListCtrl(OrderService, $rootScope, $cookieStore) {
 		OrderService.Delete(id)
 		.then(function () {
 			loadAllOrders();
+		});
+	}
+	
+	function deliverOrder(id){
+		console.log("delivering order with id: " + id);
+		OrderService.GetById(id).
+		then(function(order){
+			order.status = "delivered"
+			OrderService.Update(order).
+			then(function(){
+				loadAllOrders();
+			});
 		});
 	}
 	

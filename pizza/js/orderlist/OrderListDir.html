@@ -1,11 +1,9 @@
-
-
 <div class="panel panel-success">
 	<div class="panel-heading">
 		Orders
 	</div>
 	<div class="panel-body">
-	<div class="btn-group">
+		<div class="btn-group">
 			<button type="button" class="btn btn-default" ng-class="{disabled: search === null}" ng-click="search = null">All</button>
 			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === true}" ng-click="search.status = 'new'">New</button>
 			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === true}" ng-click="search.status = 'ready'">Ready</button>
@@ -13,24 +11,47 @@
 		</div>
 		<hr/>
 
-	<table class="table-striped table-hover usertable">
-	<tr><th>Count</th><th>Pizza</th><th>Price</th><th>Address</th><th>Status</th></tr>
-	<tr ng-repeat="order in list | filter: search">
-	<td><h4>{{order.count}}</h4></td>
-	<td><h4>{{order.pizza}}</h4></td>
-	<td><h4>€{{order.price}}</h4></td>
-	<td><h4>{{order.address}}</h4></td>
-	<td><span class="label label-warning" ng-show="order.status == 'new' ">New</span>
-				<span class="label label-info" ng-show="order.status == 'ready' ">Ready</span></td>
-				<span class="label label-info" ng-show="order.status == 'delivered' ">Delivered</span></td>
-	<td><button type="button" ng-click="vm.deleteOrder(order.id)"
+		<table class="table-striped table-hover usertable">
+			<tr>
+				<th>Count</th>
+				<th>Pizza</th>
+				<th>Price</th>
+				<th>Address</th>
+				<th>Status</th>
+			</tr>
+			<tr ng-repeat="order in list | filter: search">
+				<td>
+					<h4>{{order.count}}</h4>
+				</td>
+				<td>
+					<h4>{{order.pizza}}</h4>
+				</td>
+				<td>
+					<h4>€{{order.price}}</h4>
+				</td>
+				<td>
+					<h4>{{order.address}}</h4>
+				</td>
+				<td>
+					<span class="label label-warning" ng-show="order.status == 'new' ">New</span>
+					<span class="label label-info" ng-show="order.status == 'ready' ">Ready</span>
+					<span class="label label-info" ng-show="order.status == 'delivered' ">Delivered</span>
+				</td>
+			</td>
+			<td>
+				<button type="button" ng-click="vm.deleteOrder(order.id)"
 				        class="btn btn-success">
-					<span class="glyphicon glyphicon-plus"></span>
+					<span class="glyphicon glyphicon-plus"/>
 					Delete
-				</button></td>
+				</button>
+				<button type="button" ng-click="vm.deliverOrder(order.id)"
+				        class="btn btn-success">
+					<span class="glyphicon glyphicon-plus"/>
+					Deliver
+				</button>
+			</td>
+		</tr>
 
-				</tr>
-	
 	</table>
-		</div>
+</div>
 </div>

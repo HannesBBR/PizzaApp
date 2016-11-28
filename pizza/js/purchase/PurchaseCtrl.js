@@ -36,6 +36,7 @@ app.controller('PurchaseCtrl', function ($scope, $location, $cookieStore, Order,
 			orderitem.price = item.count * item.pizza.price;
 			orderitem.address = $scope.vm.user.address;
 			orderitem.status = "new";
+			orderitem.ordertime = Date.now();
 			console.log("Saving "+JSON.stringify(orderitem));
 			OrderService.Create(orderitem);
 		});

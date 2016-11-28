@@ -12,7 +12,7 @@
 
         service.GetAll = GetAll;
         service.GetById = GetById;
-        service.GetByOrdername = GetByOrdername;
+        service.GetByOrdertime = GetByOrdertime;
         service.Create = Create;
         service.Update = Update;
         service.Delete = Delete;
@@ -33,9 +33,9 @@
             return deferred.promise;
         }
 
-        function GetByOrdername(ordername) {
+        function GetByOrdertime(ordertime) {
             var deferred = $q.defer();
-            var filtered = $filter('filter')(getOrders(), { ordername: ordername });
+            var filtered = $filter('filter')(getOrders(), { ordertime: ordertime });
             var order = filtered.length ? filtered[0] : null;
             deferred.resolve(order);
             return deferred.promise;
@@ -46,17 +46,18 @@
             console.log("creating an order in the order service")
             // simulate api call with $timeout
             $timeout(function () {
-                GetByOrdername(order.ordername)
+                GetByOrdertime(order.ordertime)
                     .then(function (duplicateOrder) {
                         if (duplicateOrder !== null) {
-                            deferred.resolve({ success: false, message: 'Ordername "' + order.ordername + '" is already taken' });
+                            console.log("duplicateOrder");
+                            deferred.resolve({ success: false, message: 'Ordertime "' + order.ordertime + '" is already taken' });
                         } else {
                             var orders = getOrders();
 
                             // assign id
                             var lastOrder = orders[orders.length - 1] || { id: 0 };
                             order.id = lastOrder.id + 1;
-
+                            console.log("assigning id "+order.id);
                             // save to local storage
                             orders.push(order);
                             setOrders(orders);

@@ -24,7 +24,7 @@ function OrderListCtrl(OrderService, $rootScope, $cookieStore) {
 		OrderService.GetAll()
 			.then(function (orders) {
 				vm.allOrders = orders;
-				console.log("all orders:" + vm.allOrders);
+				console.log("all orders:" + JSON.stringify(vm.allOrders));
 			});
 	}
 

@@ -6,7 +6,7 @@
 		<div class="btn-group">
 			<button type="button" class="btn btn-default" ng-class="{disabled: search === null}" ng-click="search = null">All</button>
 			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === true}" ng-click="search.status = 'new'">New</button>
-			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === true}" ng-click="search.status = 'ready'">Ready</button>
+			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === true}" ng-click="search.status = 'baked'">Read for delivery</button>
 			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === false}" ng-click="search.status = 'delivered'">Delivered</button>
 		</div>
 		<hr/>
@@ -15,9 +15,10 @@
 			<tr>
 				<th>Count</th>
 				<th>Pizza</th>
-				<th>Price</th>
-				<th>Address</th>
+				<th ng-show = "vm.user.role == 'admin'">Price</th>
+				<th ng-show = "(vm.user.role == 'admin') || (vm.user.role == 'delivery')">Address</th>
 				<th>Status</th>
+				<th></th>
 			</tr>
 			<tr ng-repeat="order in list | filter: search">
 				<td>
@@ -26,28 +27,31 @@
 				<td>
 					<h4>{{order.pizza}}</h4>
 				</td>
-				<td>
+				<td ng-show = "vm.user.role == 'admin'">
 					<h4>€{{order.price}}</h4>
 				</td>
-				<td>
+				<td ng-show="(vm.user.role == 'admin') || (vm.user.role == 'delivery')">
 					<h4>{{order.address}}</h4>
 				</td>
 				<td>
 					<span class="label label-warning" ng-show="order.status == 'new' ">New</span>
 					<span class="label label-info" ng-show="order.status == 'ready' ">Ready</span>
 					<span class="label label-info" ng-show="order.status == 'delivered' ">Delivered</span>
+					<span class="label label-info" ng-show="order.status == 'baked' ">Ready for delivery</span>
 				</td>
 			</td>
 			<td>
 				<button type="button" ng-show="vm.user.role == 'admin'" ng-click="vm.deleteOrder(order.id)"
 				        class="btn btn-success">
-					<span class="glyphicon glyphicon-plus"/>
-					Delete
+					<h5>Delete</h5>
 				</button>
-				<button type="button" ng-show="(vm.user.role == 'delivery') && (order.status != 'delivered')" ng-click="vm.deliverOrder(order.id)"
+				<button type="button" ng-show="(vm.user.role == 'delivery') && (order.status == 'baked')" ng-click="vm.deliverOrder(order.id)"
 				        class="btn btn-success">
-					<span class="glyphicon glyphicon-plus"/>
-					Deliver
+					<h5>Delivered</h5>
+				</button>
+				<button type="button" ng-show="(vm.user.role == 'cook') && (order.status == 'new')" ng-click="vm.bakeOrder(order.id)"
+				        class="btn btn-success">
+					<h5>Baked</h5>
 				</button>
 			</td>
 		</tr>

@@ -12,6 +12,7 @@ function OrderListCtrl(OrderService, $rootScope, $cookieStore) {
 	vm.allOrders = [];
 	vm.deleteOrder = deleteOrder;
 	vm.deliverOrder = deliverOrder;
+	vm.bakeOrder = bakeOrder;
 
 	initController();
 
@@ -41,6 +42,18 @@ function OrderListCtrl(OrderService, $rootScope, $cookieStore) {
 		OrderService.GetById(id).
 		then(function(order){
 			order.status = "delivered"
+			OrderService.Update(order).
+			then(function(){
+				loadAllOrders();
+			});
+		});
+	}
+
+	function bakeOrder(id){
+		console.log("baking order with id: " + id);
+		OrderService.GetById(id).
+		then(function(order){
+			order.status = "baked"
 			OrderService.Update(order).
 			then(function(){
 				loadAllOrders();

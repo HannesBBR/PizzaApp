@@ -21,11 +21,15 @@
             <input type="password" name="password" id="password" class="form-control" ng-model="vm.user.password" required />
             <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
         </div>
+        <!-- PLACE IN COMMENTS TO DISABLE BIRTHDAY -->
 		<div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
             <label for="birthday">Date of birth</label>
             <input type="date" name="birthday" id="birthday" class="form-control" required />
             <span ng-show="form.birthday.$dirty && form.birthday.$error.required" class="help-block">Date of birth is required</span>
         </div>
+
+        <!-- UNCOMMENT TO ADD TERMS AND CONDITIONS -->
+        <!--
         <div class="form-group" ng-class="{ 'has-error': form.termsconditions.$error.required }">
             <label for="termsconditions">Terms and conditions</label>
             <p>
@@ -33,10 +37,14 @@
             <span style="font-size: initial">I accept the <a href="#/terms"> terms and conditions </a>.</span></p>
             <span ng-show="form.termsconditions.$error.required" class="help-block">Please accept the terms and conditions</span>
         </div>
+        -->
         <div class="form-group" ng-class="{ 'has-error': form.newsletter.$error.required }">
             <label for="newsletter">Weekly promotions</label>
             <p>
-            <input type="checkbox" name="newsletter" id="newsletter" class="" ng-model="vm.user.acceptednewsletter" />
+            <!--Set ng-checked to false to set opt-in instead of opt-out -->
+            <input type="checkbox" name="newsletter" id="newsletter" class="" ng-model="vm.user.acceptednewsletter" 
+                ng-checked="true"
+                />
             <span style="font-size: initial">I want to receive weekly promotional emails</span></p>
         </div>
         <div class="form-actions">

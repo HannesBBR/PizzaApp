@@ -47,9 +47,13 @@
             demo.username = "demo";
             demo.password = "test";
             demo.role = "user";
+            demo.card = {};
+            demo.card.number="1223-1231-1424-9889";
+            demo.card.cvc="123";
+            demo.address="Berkenlaan 8, 1830 Diegem"
             UserService.Create(demo);
             var admin = {};
-            admin.firstName = "Administrator";
+            admin.firstName = "Mario";
             admin.lastName = "Admin";
             admin.username = "admin";
             admin.password = "test";

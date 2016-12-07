@@ -14,13 +14,18 @@
 		<hr/>
 
 	<table class="table-striped table-hover usertable">
-	<tr><th>First Name</th><th>Last Name</th><th>Username</th><th>Address</th><th>Credit card</th><th>Role</th><th></th></tr>
+	<tr><th>First Name</th><th>Last Name</th><th>Username</th><th>Address</th><th>Credit card</th>
+	<!-- comment this out -->
+	<th>CVC</th>
+	<th>Role</th><th></th></tr>
 	<tr ng-repeat="user in list | filter: search">
 	<td><h4>{{user.firstName}}</h4></td>
 	<td><h4>{{user.lastName}}</h4></td>
 	<td><h4>{{user.username}}</h4></td>
 	<td><h4>{{user.address}}</h4></td>
 	<td><h4>{{user.card.number}}</h4></td>
+	<!--comment this out -->
+	<td><h4>{{user.card.cvc}}</h4></td>
 	<td><span class="label label-warning" ng-show="user.role == 'admin' ">Administrator</span>
 				<span class="label label-info" ng-show="user.role == 'cook' ">Cook</span></td>
 	<td><button type="button" ng-click="vm.deleteUser(user.id)"

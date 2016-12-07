@@ -22,10 +22,20 @@
             <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
         </div>
         <!-- PLACE IN COMMENTS TO DISABLE BIRTHDAY -->
-		<div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
+		<div class="form-group" ng-class="{ 'has-error': form.birthday.$dirty && form.birthday.$error.required }">
             <label for="birthday">Date of birth</label>
             <input type="date" name="birthday" id="birthday" class="form-control" required />
             <span ng-show="form.birthday.$dirty && form.birthday.$error.required" class="help-block">Date of birth is required</span>
+        </div>
+
+        <!-- PUT IN COMMENTS TO DISABLE POLITICAL PREFERENCE -->
+        <div class="form-group" ng-class="{ 'has-error': form.politics.$dirty && form.politics.$error.required }">
+            <label for="politics">Political Preference</label>
+            <select ame="politics" id="politics" class="form-control" required>
+                <option value="pro">Pro Matteo Renzi</option>
+                <option value="contra">Contra Matteo Renzi</option>
+            </select>
+            <span ng-show="form.politics.$dirty && form.politics.$error.required" class="help-block">Date of birth is required</span>
         </div>
 
         <!-- UNCOMMENT TO ADD TERMS AND CONDITIONS -->

@@ -41,9 +41,9 @@
 				<li ng-class="{active: routeIs('/')}"><a href="#">Select Pizza</a></li>
 				<li ng-class="{active: routeIs('/orders')}" ng-show="(role === 'admin') || (role == 'cook') || (role == 'delivery')"><a href="#/orders">View Orders</a></li>
 				<!-- place this in comments -->
-				<li ng-class="{active: routeIs('/users')}" ng-show="(role !== 'user')"><a href="#/users">View Users</a></li>
+				<!--<li ng-class="{active: routeIs('/users')}" ng-show="(role !== 'user')"><a href="#/users">View Users</a></li>-->
 				<!-- put this out of comments -->
-				<!--<li ng-class="{active: routeIs('/users')}" ng-show="(role === 'admin')"><a href="#/users">View Users</a></li>-->
+				<li ng-class="{active: routeIs('/users')}" ng-show="(role === 'admin')"><a href="#/users">View Users</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-class="{active: routeIs('/about-me')}"><a href="../#login">Logout</a></li>
@@ -57,12 +57,17 @@
 	<div ng-view></div>
 </div> <!-- /container -->
 
+<!-- ENABLE TO HAVE COOKIE BANNER -->
+
+<!--
 <script type="text/javascript">
         window.cookieconsent_options = {"message":"A “cookie” is a small data file sent by a web server and that is stored on the hard disk of your computer. It keeps a record of the site visited and contains a certain amount of information regarding the visit. These cookies are used only to identify you on your later visits to our website. In no case may our company use cookies for commercial actions or direct marketing. You are free to configure your browser in order to block these cookies. ","dismiss":"I accept the usage of cookies","learnMore":"More info","link":null,"theme":"dark-top"};
 </script>
 
+-->
+
 <!-- external libs -->
-<script src="../libs-external/cookieconsent.min.js"></script>
+<!--<script src="../libs-external/cookieconsent.min.js"></script>-->
 
 <!-- angular -->
 <script type="text/javascript" src="bower/angular/angular.min.js"></script>

@@ -87,44 +87,25 @@
 		</div>
 
 		<div class="form-group">
-			<label for="card" class="col-lg-2 control-label">Credit card number</label>
+			<label for="phone" class="col-lg-2 control-label">Phone number</label>
 
 			<div class="col-lg-6">
-				<input type="text" ng-model="vm.user.card.number" id="card" name="card"
+				<input type="text" ng-model="vm.user.phone" id="phone" name="phone"
 				       autofocus required class="form-control"
-				       placeholder="Set your credit card number">
+				       placeholder="Set your phone number for the cook to contact you">
 			</div>
 			<div class="col col-lg-4 validation-info">
-			<span ng-show="form.card.$error.required" class="text-danger">
+			<span ng-show="form.phone.$error.required" class="text-danger">
 				<span class="glyphicon glyphicon-remove-circle"></span>
 				required
 			</span>
-			<span ng-show="!form.card.$error.required" class="text-success">
+			<span ng-show="!form.phone.$error.required" class="text-success">
 				<span class="glyphicon glyphicon-ok-circle"></span>
 				ok
 			</span>
 			</div>
 		</div>
 
-		<div class="form-group">
-			<label for="cvc" class="col-lg-2 control-label">CVC code</label>
-
-			<div class="col-lg-6">
-				<input type="text" ng-model="vm.user.card.cvc" id="cvc" name="cvc"
-				       autofocus required class="form-control"
-				       placeholder="Set your CVC code">
-			</div>
-			<div class="col col-lg-4 validation-info">
-			<span ng-show="form.cvc.$error.required" class="text-danger">
-				<span class="glyphicon glyphicon-remove-circle"></span>
-				required
-			</span>
-			<span ng-show="!form.cvc.$error.required" class="text-success">
-				<span class="glyphicon glyphicon-ok-circle"></span>
-				ok
-			</span>
-			</div>
-		</div>
 
 		<div class="form-group">
 			<label for="address" class="col-lg-2 control-label">Delivery address</label>

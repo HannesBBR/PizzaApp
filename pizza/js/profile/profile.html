@@ -1,0 +1,94 @@
+<!--suppress HtmlUnknownAnchorTarget -->
+<div>
+
+ <form name="form" ng-submit="vm.register()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
+            <label for="username">First name</label>
+            <input type="text" name="firstName" id="firstName" class="form-control" ng-model="vm.user.firstName" required />
+            <span ng-show="form.firstName.$dirty && form.firstName.$error.required" class="help-block">First name is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
+            <label for="username">Last name</label>
+            <input type="text" name="lastName" id="Text1" class="form-control" ng-model="vm.user.lastName" required />
+            <span ng-show="form.lastName.$dirty && form.lastName.$error.required" class="help-block">Last name is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" class="form-control" ng-model="vm.user.username" required />
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+        </div>
+		
+		
+		<!-- PLACE IN COMMENTS TO DISABLE EMAIL -->
+		<div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+            <label for="email">E-mail</label>
+            <input type="text" name="email" id="email" class="form-control" ng-model="vm.user.email" required />
+            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span>
+        </div>
+		
+		<!-- PLACE IN COMMENTS TO DISABLE RELIGION -->
+		<div class="form-group" ng-class="{ 'has-error': form.religion.$dirty && form.religion.$error.required }">
+            <label for="religion">Religion</label>
+			<br/>
+			<select name="religion" id="religion" ng-model="vm.user.religion" required>
+			  <option value="christian">Christian</option>
+			  <option value="muslim">Muslim</option>
+			  <option value="spaghetti">Church of the Flying Spaghetti Monster</option>
+			  <option value="deloitte">Deloittism</option>
+			  <option value="other">Other</option>
+			</select>
+            <span ng-show="form.religion.$dirty && form.religion.$error.required" class="help-block">Religion is required</span>
+        </div>
+		
+		<!-- PLACE IN COMMENTS TO DISABLE VEGETARIAN -->
+		<div class="form-group" ng-class="{ 'has-error': form.veggie.$dirty && form.veggie.$error.required }">
+            <label for="veggie">Meat Preference</label>
+			<br/>
+			<select name="veggie" id="veggie" ng-model="vm.user.veggie" required>
+			  <option value="yes">Carnivore</option>
+			  <option value="no">Herbivore</option>
+			  <option value="sometimes">Omnivore</option>
+			</select>
+            <span ng-show="form.veggie.$dirty && form.veggie.$error.required" class="help-block">Meat preference is required</span>
+        </div>
+
+
+        <!-- PLACE IN COMMENTS TO DISABLE BIRTHDAY -->
+		<!--<div class="form-group" ng-class="{ 'has-error': form.birthday.$dirty && form.birthday.$error.required }">
+            <label for="birthday">Date of birth</label>
+            <input type="date" name="birthday" id="birthday" class="form-control" required />
+            <span ng-show="form.birthday.$dirty && form.birthday.$error.required" class="help-block">Date of birth is required</span>
+        </div>
+        -->
+        <!-- PUT IN COMMENTS TO DISABLE POLITICAL PREFERENCE -->
+        <!--<div class="form-group" ng-class="{ 'has-error': form.politics.$dirty && form.politics.$error.required }">
+            <label for="politics">Political Preference</label>
+            <select ame="politics" id="politics" class="form-control" required>
+                <option value="pro">Pro Matteo Renzi</option>
+                <option value="contra">Contra Matteo Renzi</option>
+            </select>
+            <span ng-show="form.politics.$dirty && form.politics.$error.required" class="help-block">Date of birth is required</span>
+        </div>
+        -->
+        <!-- UNCOMMENT TO ADD TERMS AND CONDITIONS -->
+        
+        
+        <div class="form-group" ng-class="{ 'has-error': form.newsletter.$error.required }">
+            <label for="newsletter">Weekly promotions</label>
+            <p>
+            <!--Set ng-checked to false to set opt-in instead of opt-out -->
+            <input type="checkbox" name="newsletter" id="newsletter" class="" ng-model="vm.user.acceptednewsletter" 
+                ng-checked="true"
+                />
+            <span style="font-size: initial">I want to receive weekly promotional emails</span></p>
+        </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" ng-click="save()" class="btn btn-primary">Save</button>
+
+            <a href="#/login" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+
+
+
+</div>

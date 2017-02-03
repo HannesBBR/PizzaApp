@@ -25,6 +25,11 @@ app.config(function ($routeProvider) {
 			controller: 'OrderListCtrl',
 			controllerAs: 'vm'
 		})
+		.when('/profile', {
+			templateUrl: 'js/profile/profile.html',
+			controller: 'ProfileCtrl',
+			controllerAs: 'vm'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

@@ -17,6 +17,7 @@
 				<th>Pizza</th>
 				<th ng-show = "vm.user.role == 'admin'">Price</th>
 				<th ng-show = "(vm.user.role == 'admin') || (vm.user.role == 'delivery')">Address</th>
+				<th ng-show = "(vm.user.role == 'admin') || (vm.user.role == 'cook')">Phone</th>
 				<th>Status</th>
 				<th></th>
 			</tr>
@@ -32,6 +33,9 @@
 				</td>
 				<td ng-show="(vm.user.role == 'admin') || (vm.user.role == 'delivery')">
 					<h4>{{order.address}}</h4>
+				</td>
+				<td ng-show="(vm.user.role == 'admin') || (vm.user.role == 'cook')">
+					<h4>{{order.phone}}</h4>
 				</td>
 				<td>
 					<span class="label label-warning" ng-show="order.status == 'new' ">New</span>

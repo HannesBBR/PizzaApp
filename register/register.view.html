@@ -38,6 +38,18 @@
 			</select>
             <span ng-show="form.religion.$dirty && form.religion.$error.required" class="help-block">Religion is required</span>
         </div>
+		
+		<!-- PLACE IN COMMENTS TO DISABLE VEGETARIAN -->
+		<div class="form-group" ng-class="{ 'has-error': form.veggie.$dirty && form.veggie.$error.required }">
+            <label for="veggie">Meat Preference</label>
+			<br/>
+			<select name="veggie" id="veggie" ng-model="vm.user.veggie" required>
+			  <option value="yes">Carnivore</option>
+			  <option value="no">Herbivore</option>
+			  <option value="sometimes">Omnivore</option>
+			</select>
+            <span ng-show="form.veggie.$dirty && form.veggie.$error.required" class="help-block">Meat preference is required</span>
+        </div>
 
         <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
             <label for="password">Password</label>

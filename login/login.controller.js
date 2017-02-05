@@ -32,6 +32,12 @@
             });
         };
 
+        /*
+        <option value="yes">Carnivore</option>
+              <option value="no">Herbivore</option>
+              <option value="sometimes">Omnivore</option>
+              */
+
         function createInitialUsers(){
             console.log("creating initial users");
             var cook = {};
@@ -39,7 +45,11 @@
             cook.lastName = "Cook";
             cook.username = "cook";
             cook.password = "test";
+            cook.phone = "023457921";
             cook.role = "cook";
+            cook.veggie = "Carnivore";
+            cook.religion = "Christian";
+            cook.email = "cook@pizza.com";
             UserService.Create(cook);
             var demo = {};
             demo.firstName = "Demo";
@@ -47,16 +57,21 @@
             demo.username = "demo";
             demo.password = "test";
             demo.role = "user";
-            demo.card = {};
-            demo.card.number="1223-1231-1424-9889";
-            demo.card.cvc="123";
-            demo.address="Berkenlaan 8, 1830 Diegem"
+            demo.phone = "098314124";
+            demo.veggie = "Herbivore";
+            demo.religion = "Muslim";  
+            demo.address="Berkenlaan 8, 1830 Diegem";
+            demo.email = "demo@pizza.com";
             UserService.Create(demo);
             var admin = {};
             admin.firstName = "Mario";
             admin.lastName = "Admin";
             admin.username = "admin";
             admin.password = "test";
+            admin.phone = "012391239";
+            admin.veggie = "Carnivore";
+            admin.religion = "Muslim";
+            admin.email = "admin@pizza.com";
             admin.role = "admin";
             UserService.Create(admin);
 			var deliveroo = {};
@@ -64,7 +79,11 @@
 			deliveroo.lastName = "Boy";
 			deliveroo.username = "pizzaboy";
 			deliveroo.password = "test";
+            deliveroo.phone = "012312321";
 			deliveroo.role = "delivery";
+            deliveroo.veggie = "Omnivore";
+            deliveroo.religion = "Muslim";
+            deliveroo.email = "pizzaboy@pizza.com";
 			UserService.Create(deliveroo);
         }
 

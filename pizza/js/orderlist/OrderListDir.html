@@ -32,9 +32,9 @@
 					<h4>€{{order.price}}</h4>
 				</td>
 				<td ng-show="(vm.user.role == 'admin') || (vm.user.role == 'delivery')">
-					<h4>{{order.address}}</h4>
+					<h4>{{order.firstName}} {{order.lastName}} <br />{{order.address}}</h4>
 				</td>
-				<td ng-show="(vm.user.role == 'admin') || (vm.user.role == 'cook')">
+				<td ng-show="(vm.user.role == 'admin') || (vm.user.role == 'cook')  || (vm.user.role == 'delivery')">
 					<h4>{{order.phone}}</h4>
 				</td>
 				<td>
